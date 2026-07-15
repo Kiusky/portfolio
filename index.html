@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Kiusky</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+
+    <div class="circuit-divider circuit-divider-top">
+      <svg class="circuit-svg" viewBox="0 0 1200 50" preserveAspectRatio="none">
+        <path class="circuit-line" d="M 0 25 L 80 25 L 80 15 L 160 15 L 160 35 L 240 35 L 240 15 L 320 15 L 320 25 L 400 25" />
+        <path class="circuit-line" d="M 480 25 L 560 25 L 560 15 L 640 15 L 640 35 L 720 35 L 720 15 L 800 15 L 800 25 L 880 25" />
+        <path class="circuit-line" d="M 960 25 L 1040 25 L 1040 15 L 1120 15 L 1120 35 L 1200 35" />
+        <path class="circuit-line" d="M 400 25 L 480 25" />
+        <path class="circuit-line" d="M 880 25 L 960 25" />
+        <path class="circuit-line" d="M 80 25 L 80 40" />
+        <path class="circuit-line" d="M 240 35 L 240 40" />
+        <path class="circuit-line" d="M 400 25 L 400 40" />
+        <path class="circuit-line" d="M 560 25 L 560 40" />
+        <path class="circuit-line" d="M 720 35 L 720 40" />
+        <path class="circuit-line" d="M 880 25 L 880 40" />
+        <path class="circuit-line" d="M 1040 25 L 1040 40" />
+        <path class="circuit-line-flow delay-1" d="M 0 25 L 80 25 L 80 15 L 160 15 L 160 35 L 240 35 L 240 15 L 320 15 L 320 25 L 400 25" />
+        <path class="circuit-line-flow fast delay-2" d="M 400 25 L 480 25 L 480 25 L 560 25 L 560 15 L 640 15 L 640 35 L 720 35 L 720 15 L 800 15 L 800 25 L 880 25" />
+        <path class="circuit-line-flow slow delay-3" d="M 880 25 L 960 25 L 960 25 L 1040 25 L 1040 15 L 1120 15 L 1120 35 L 1200 35" />
+        <path class="circuit-line-flow delay-4" d="M 80 25 L 80 40" />
+        <path class="circuit-line-flow fast delay-5" d="M 240 35 L 240 40" />
+        <path class="circuit-line-flow delay-1" d="M 400 25 L 400 40" />
+        <path class="circuit-line-flow slow delay-2" d="M 560 25 L 560 40" />
+        <path class="circuit-line-flow delay-3" d="M 720 35 L 720 40" />
+        <path class="circuit-line-flow fast delay-4" d="M 880 25 L 880 40" />
+        <path class="circuit-line-flow delay-5" d="M 1040 25 L 1040 40" />
+        <circle class="circuit-node active" cx="80" cy="25" r="3.5" />
+        <circle class="circuit-node pulse-slow" cx="160" cy="15" r="3" />
+        <circle class="circuit-node pulse-fast" cx="240" cy="35" r="3.5" />
+        <circle class="circuit-node" cx="320" cy="15" r="3" />
+        <circle class="circuit-node active" cx="400" cy="25" r="3.5" />
+        <circle class="circuit-node pulse-slow" cx="560" cy="25" r="3" />
+        <circle class="circuit-node pulse-fast" cx="640" cy="15" r="3.5" />
+        <circle class="circuit-node" cx="720" cy="35" r="3" />
+        <circle class="circuit-node active" cx="800" cy="15" r="3.5" />
+        <circle class="circuit-node" cx="880" cy="25" r="3" />
+        <circle class="circuit-node pulse-slow" cx="1040" cy="25" r="3.5" />
+        <circle class="circuit-node pulse-fast" cx="1120" cy="15" r="3" />
+        <rect class="circuit-chip active" x="125" y="10" width="12" height="6" />
+        <rect class="circuit-chip pulse-slow" x="305" y="10" width="12" height="6" />
+        <rect class="circuit-chip pulse-fast" x="605" y="10" width="12" height="6" />
+        <rect class="circuit-chip active" x="785" y="10" width="12" height="6" />
+        <rect class="circuit-chip" x="1085" y="10" width="12" height="6" />
+      </svg>
+    </div>
+
+    <nav class="navbar">
+      <div class="logo">
+        <i class="fas fa-microchip logo-icon"></i>
+        <span class="logo-text">Kiusky<span></span></span>
+        <span class="logo-sub">Giuliano Junior</span>
+      </div>
+      <div class="nav-links">
+        <a href="#contato" class="btn-contato"><i class="fa-solid fa-comments"></i> Fale comigo</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Transformo ideias em <span>soluções</span> digitais</h1>
+        <div class="hero-stats">
+          <div><i class="fas fa-check-circle"></i> 15+ anos</div>
+          <div><i class="fas fa-code"></i> 50+ projetos</div>
+          <div><i class="fas fa-users"></i> 1M+ serviços</div>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="monitor-wrapper">
+          <div class="monitor">
+            <div class="monitor-screen" id="monitorScreen">
+              <div class="iframe-container">
+                <iframe src="code.html" class="iframe-code" id="iframeCode" scrolling="no" loading="lazy"></iframe>
+                <iframe src="pages.html" class="iframe-pages" id="iframePages" scrolling="no" loading="lazy"></iframe>
+              </div>
+            </div>
+            <div class="monitor-led"></div>
+            <div class="monitor-buttons">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <div class="monitor-stand"></div>
+          <div class="monitor-base"></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="diferenciais">
+      <div class="glass-sparkle"></div>
+      <div class="glass-sparkle"></div>
+      <div class="glass-sparkle"></div>
+      <div class="diferenciais-grid">
+        <div><i class="fas fa-shield-alt"></i><h4>Segurança</h4><p>Práticas atualizadas</p></div>
+        <div><i class="fas fa-clock"></i><h4>Agilidade</h4><p>Entregas no prazo</p></div>
+        <div><i class="fas fa-headset"></i><h4>Suporte</h4><p>Pós-atendimento dedicado</p></div>
+        <div><i class="fas fa-handshake"></i><h4>Confiança</h4><p>Parceria transparente</p></div>
+      </div>
+    </div>
+
+    <div class="section-wrapper">
+      <div class="section-title" id="servicosToggle">
+        <span class="title-content">
+          <i class="fas fa-cog"></i> Serviços
+        </span>
+        <span class="arrow"><i class="fas fa-chevron-down"></i></span>
+      </div>
+      <div class="section-content" id="servicosContent">
+        <div class="servicos-grid">
+          <div class="servico-card">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+              <i class="fas fa-globe" style="font-size: 2rem; color: var(--blue); margin: 0; padding: 0; background: none;"></i>
+              <h3 style="margin: 0; font-size: 1.2rem;">SITES</h3>
+            </div>
+            <p style="margin: 0; padding-left: 4px;">Landing pages, institucionais e e-commerces com design responsivo e otimizado.</p>
+          </div>
+          <div class="servico-card">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+              <i class="fab fa-discord" style="font-size: 2rem; color: var(--blue); margin: 0; padding: 0; background: none;"></i>
+              <h3 style="margin: 0; font-size: 1.2rem;">BOTS</h3>
+            </div>
+            <p style="margin: 0; padding-left: 4px;">Automação, moderação, economia, e comandos personalizados.</p>
+          </div>
+          <div class="servico-card">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+              <i class="fas fa-network-wired" style="font-size: 2rem; color: var(--blue); margin: 0; padding: 0; background: none;"></i>
+              <h3 style="margin: 0; font-size: 1.2rem;">REDES & INFRA</h3>
+            </div>
+            <p style="margin: 0; padding-left: 4px;">Configuração de roteadores, switches, VPN e cabeamento estruturado.</p>
+          </div>
+          <div class="servico-card">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+              <i class="fas fa-desktop" style="font-size: 2rem; color: var(--blue); margin: 0; padding: 0; background: none;"></i>
+              <h3 style="margin: 0; font-size: 1.2rem;">MÁQUINAS</h3>
+            </div>
+            <p style="margin: 0; padding-left: 4px;">Hardware sob medida, otimização de desempenho e formatação.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-wrapper">
+      <div class="section-title" id="projetosToggle">
+        <span class="title-content">
+          <i class="fas fa-folder-open"></i> Projetos em destaque
+        </span>
+        <span class="arrow"><i class="fas fa-chevron-down"></i></span>
+      </div>
+      <div class="section-content" id="projetosContent">
+        <div class="projetos-carousel">
+          <div class="carousel-container">
+            <div class="carousel-slide active" data-index="0">
+              <div class="carousel-image-wrapper">
+                <img src="#" alt="Projeto 1">
+                <div class="carousel-title-overlay">
+                  <h3>PROJETO 1</h3>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-slide" data-index="1">
+              <div class="carousel-image-wrapper">
+                <img src="#" alt="Projeto 2">
+                <div class="carousel-title-overlay">
+                  <h3>PROJETO 2</h3>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-slide" data-index="2">
+              <div class="carousel-image-wrapper">
+                <img src="#" alt="Projeto 3">
+                <div class="carousel-title-overlay">
+                  <h3>PROJETO 3</h3>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-slide" data-index="3">
+              <div class="carousel-image-wrapper">
+                <img src="#" alt="Projeto 4">
+                <div class="carousel-title-overlay">
+                  <h3>PROJETO 4</h3>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-dots" id="carouselDots">
+              <button class="carousel-dot active" data-index="0"></button>
+              <button class="carousel-dot" data-index="1"></button>
+              <button class="carousel-dot" data-index="2"></button>
+              <button class="carousel-dot" data-index="3"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contato-box" id="contato">
+      <div>
+        <h2>Vamos construir algo incrível?</h2>
+      </div>
+      <div class="btn-group">
+        <a href="https://wa.me/5568999482377" target="_blank" rel="noopener noreferrer" class="btn-branco"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <a href="mailto:giuliano.junior@live.com" class="btn-branco"><i class="fas fa-envelope"></i> E-mail</a>
+      </div>
+    </div>
+
+    <footer>
+      <span style="font-weight: 400;">Copyright © 2026 Kiusky — Especialista em TI</span>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/giuliano-jr/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://discord.com/users/351072738053586955" target="_blank" rel="noopener noreferrer"><i class="fab fa-discord"></i></a>
+        <a href="https://github.com/Kiusky" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+      </div>
+    </footer>
+
+    <div class="circuit-divider circuit-divider-bottom">
+      <svg class="circuit-svg" viewBox="0 0 1200 50" preserveAspectRatio="none">
+        <path class="circuit-line" d="M 0 25 L 100 25 L 100 15 L 180 15 L 180 35 L 260 35 L 260 15 L 340 15 L 340 25 L 440 25" />
+        <path class="circuit-line" d="M 520 25 L 600 25 L 600 15 L 680 15 L 680 35 L 760 35 L 760 15 L 840 15 L 840 25 L 940 25" />
+        <path class="circuit-line" d="M 1020 25 L 1100 25 L 1100 15 L 1180 15 L 1180 35 L 1200 35" />
+        <path class="circuit-line" d="M 440 25 L 520 25" />
+        <path class="circuit-line" d="M 940 25 L 1020 25" />
+        <path class="circuit-line" d="M 100 25 L 100 40" />
+        <path class="circuit-line" d="M 260 35 L 260 40" />
+        <path class="circuit-line" d="M 440 25 L 440 40" />
+        <path class="circuit-line" d="M 600 25 L 600 40" />
+        <path class="circuit-line" d="M 760 35 L 760 40" />
+        <path class="circuit-line" d="M 940 25 L 940 40" />
+        <path class="circuit-line" d="M 1100 25 L 1100 40" />
+        <path class="circuit-line-flow delay-2" d="M 0 25 L 100 25 L 100 15 L 180 15 L 180 35 L 260 35 L 260 15 L 340 15 L 340 25 L 440 25" />
+        <path class="circuit-line-flow slow delay-4" d="M 440 25 L 520 25 L 520 25 L 600 25 L 600 15 L 680 15 L 680 35 L 760 35 L 760 15 L 840 15 L 840 25 L 940 25" />
+        <path class="circuit-line-flow fast delay-1" d="M 940 25 L 1020 25 L 1020 25 L 1100 25 L 1100 15 L 1180 15 L 1180 35 L 1200 35" />
+        <path class="circuit-line-flow delay-3" d="M 100 25 L 100 40" />
+        <path class="circuit-line-flow fast delay-5" d="M 260 35 L 260 40" />
+        <path class="circuit-line-flow delay-1" d="M 440 25 L 440 40" />
+        <path class="circuit-line-flow slow delay-2" d="M 600 25 L 600 40" />
+        <path class="circuit-line-flow delay-4" d="M 760 35 L 760 40" />
+        <path class="circuit-line-flow fast delay-3" d="M 940 25 L 940 40" />
+        <path class="circuit-line-flow delay-5" d="M 1100 25 L 1100 40" />
+        <circle class="circuit-node pulse-fast" cx="100" cy="25" r="3.5" />
+        <circle class="circuit-node" cx="180" cy="15" r="3" />
+        <circle class="circuit-node active" cx="260" cy="35" r="3.5" />
+        <circle class="circuit-node pulse-slow" cx="340" cy="15" r="3" />
+        <circle class="circuit-node" cx="440" cy="25" r="3.5" />
+        <circle class="circuit-node active" cx="600" cy="25" r="3" />
+        <circle class="circuit-node" cx="680" cy="15" r="3.5" />
+        <circle class="circuit-node pulse-fast" cx="760" cy="35" r="3" />
+        <circle class="circuit-node pulse-slow" cx="840" cy="15" r="3.5" />
+        <circle class="circuit-node" cx="940" cy="25" r="3" />
+        <circle class="circuit-node active" cx="1100" cy="25" r="3.5" />
+        <circle class="circuit-node" cx="1180" cy="15" r="3" />
+        <rect class="circuit-chip" x="145" y="10" width="12" height="6" />
+        <rect class="circuit-chip active" x="325" y="10" width="12" height="6" />
+        <rect class="circuit-chip pulse-fast" x="645" y="10" width="12" height="6" />
+        <rect class="circuit-chip pulse-slow" x="825" y="10" width="12" height="6" />
+        <rect class="circuit-chip active" x="1145" y="10" width="12" height="6" />
+      </svg>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

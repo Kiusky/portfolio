@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: #1e1e1e;
+}
+
+pre {
+    margin: 0;
+    padding: 20px;
+    font-size: 16px;
+    background: #1e1e1e;
+    width: 100vw;
+    height: 100vh;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+}
+
+pre::-webkit-scrollbar {
+    display: none;
+}
+
+code {
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 8px;
+    line-height: 1.8;
+    color: #d4d4d4;
+    white-space: pre-wrap;
+    word-break: break-word;
+    position: relative;
+}
+
+.cursor {
+    display: inline-block;
+    width: 1px;
+    height: 8px;
+    background: #ffffff;
+    animation: blink 0.8s ease-in-out infinite;
+    vertical-align: text-bottom;
+    position: relative;
+    margin-left: 2px;
+    border-radius: 1px;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+@keyframes blink {
+    0%, 100% { 
+        opacity: 1;
+        transform: scaleY(1);
+    }
+    50% { 
+        opacity: 0.1;
+        transform: scaleY(0.8);
+    }
+}
+
+.token.keyword {
+    color: #569cd6 !important;
+    font-weight: bold;
+}
+.token.string {
+    color: #ce9178 !important;
+}
+.token.number {
+    color: #b5cea8 !important;
+}
+.token.function {
+    color: #dcdcaa !important;
+    font-weight: bold;
+}
+.token.class-name {
+    color: #4ec9b0 !important;
+    font-weight: bold;
+}
+.token.variable {
+    color: #9cdcfe !important;
+}
+.token.operator {
+    color: #d4d4d4 !important;
+}
+.token.comment {
+    color: #6a9955 !important;
+    font-style: italic;
+}
+.token.constant {
+    color: #c586c0 !important;
+    font-weight: bold;
+}
+.token.boolean {
+    color: #569cd6 !important;
+    font-weight: bold;
+}
+.token.null,
+.token.undefined {
+    color: #569cd6 !important;
+    font-weight: bold;
+}
+.token.punctuation {
+    color: #d4d4d4 !important;
+}
+.token.property {
+    color: #9cdcfe !important;
+}
+</style>
+</head>
+
+<body>
+
+<pre><code id="code" class="language-javascript"></code></pre>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+
+<script>
+const fullCode = `function createSteamChoiceModal(linkUrl, linkName) {
+    const existingModal = document.getElementById('steamChoiceModal');
+    if (existingModal) existingModal.remove();
+    
+    closeWidgets();
+    
+    const modal = document.createElement('div');
+    modal.id = 'steamChoiceModal';
+    
+    const modalContent = document.createElement('div');
+    
+    modalContent.innerHTML = \`
+    
+    modal.appendChild(modalContent);
+    document.body.appendChild(modal);
+    
+    let linkClicked = false;
+    
+    document.getElementById('openInSteamYes').addEventListener('click', function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        
+        if (linkClicked) return;
+        linkClicked = true;
+        
+        setTimeout(() => {
+            const steamProtocolUrl = 'steam://openurl/' + linkUrl;
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.src = steamProtocolUrl;
+            document.body.appendChild(iframe);
+            
+            setTimeout(() => {
+                document.body.removeChild(iframe);
+                modal.remove();
+            }, 100);
+        }, 150);
+    });
+    
+    document.getElementById('openInSteamNo').addEventListener('click', function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        
+        if (linkClicked) return;
+        linkClicked = true;
+        
+        setTimeout(() => {
+            window.location.href = linkUrl;
+            modal.remove();
+        }, 150);
+    });
+    
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            modal.remove();
+        }
+    });
+    
+    document.addEventListener('keydown', function closeOnEsc(e) {
+        if (e.key === 'Escape') {
+            modal.remove();
+            document.removeEventListener('keydown', closeOnEsc);
+        }
+    });
+}
+
+function setupSteamLinks() {
+    setTimeout(() => {
+        const steamButtons = document.querySelectorAll('.steam-btn');
+        
+        steamButtons.forEach(button => {
+            const newButton = button.cloneNode(true);
+            button.parentNode.replaceChild(newButton, button);
+            
+            newButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const linkUrl = this.getAttribute('href');
+                const linkName = steamLinkNames[linkUrl] || 'este link';
+                
+                if (isMobileDevice()) {
+                    window.location.href = linkUrl;
+                } else {
+                    createSteamChoiceModal(linkUrl, linkName);
+                }
+            });
+        });
+        
+        console.log(\`Configurados \${steamButtons.length} links do Steam\`);
+    }, 500);
+}
+
+function isMobileDevice() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
+function createDiscordChoiceModal() {
+    if (isMobileDevice()) {
+        window.location.href = '#';
+        return;
+    }
+    
+    const existingModal = document.getElementById('discordChoiceModal');
+    if (existingModal) existingModal.remove();
+    
+    closeWidgets();
+    
+    const modal = document.createElement('div');
+    modal.id = 'discordChoiceModal';
+    
+    const modalContent = document.createElement('div');
+    
+    modalContent.innerHTML = \`
+        <div>
+            <div>
+                <div>
+                    <i class="fab fa-discord"></i>
+                </div>
+                <h3>
+                    Deseja abrir diretamente no aplicativo do Discord ?
+                </h3>
+            </div>
+            
+            <div>
+                <button id="openDiscordApp">SIM</button>
+                <button id="openDiscordWeb">NÃO</button>
+            </div>
+        </div>
+    \`;
+    
+    modal.appendChild(modalContent);
+    document.body.appendChild(modal);
+    
+    let linkClicked = false;
+    
+    document.getElementById('openDiscordApp').addEventListener('click', function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        
+        if (linkClicked) return;
+        linkClicked = true;
+        
+        setTimeout(() => {
+            const discordAppUrl = '#';
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.src = discordAppUrl;
+            document.body.appendChild(iframe);
+            
+            setTimeout(() => {
+                document.body.removeChild(iframe);
+            }, 3000);
+            
+            modal.remove();
+        }, 150);
+    });
+    
+    document.getElementById('openDiscordWeb').addEventListener('click', function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        
+        if (linkClicked) return;
+        linkClicked = true;
+        
+        setTimeout(() => {
+            window.location.href = '#';
+            modal.remove();
+        }, 150);
+    });
+    
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            modal.remove();
+        }
+    });
+    
+    document.addEventListener('keydown', function closeOnEsc(e) {
+        if (e.key === 'Escape') {
+            modal.remove();
+            document.removeEventListener('keydown', closeOnEsc);
+        }
+    });
+}
+
+function setupDiscordLinks() {
+    setTimeout(() => {
+        const openDiscordBtn = document.getElementById('openDiscordBtn');
+        if (openDiscordBtn) {
+            const newButton = openDiscordBtn.cloneNode(true);
+            openDiscordBtn.parentNode.replaceChild(newButton, openDiscordBtn);
+            
+            newButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                if (isMobileDevice()) {
+                    window.location.href = '#';
+                } else {
+                    createDiscordChoiceModal();
+                }
+            });
+        }
+        
+        console.log('Botão do Discord configurado');
+    }, 800);
+}
+
+async function loadDiscordMembers(forceRefresh = false) {
+    const SERVER_ID = '#';
+    const API_URL = \`https://discord.com/api/guilds/\${SERVER_ID}/widget.json\`;
+    
+    if (discordMembersCache && !forceRefresh) {
+        renderDiscordMembers(discordMembersCache);
+        return;
+    }
+    
+    if (isDiscordMembersLoading) return;
+    
+    isDiscordMembersLoading = true;
+    
+    try {
+        const response = await fetch(API_URL);
+        
+        if (!response.ok) {
+            throw new Error('Servidor não encontrado ou widget desativado');
+        }
+        
+        const data = await response.json();
+        discordMembersCache = data;
+        renderDiscordMembers(data);
+        
+    } catch (error) {
+        console.error('Erro ao carregar widget:', error);
+        showDiscordError();
+    } finally {
+        isDiscordMembersLoading = false;
+    }
+}
+
+function renderDiscordMembers(data, targetContainer = null) {
+    const membersWidget = targetContainer || document.getElementById('discord-members-widget');
+    if (!membersWidget) return;
+    
+    const sortedMembers = [...data.members].sort((a, b) => {
+        const statusOrder = { online: 0, idle: 1, dnd: 2, offline: 3 };
+        const statusA = statusOrder[a.status] || 3;
+        const statusB = statusOrder[b.status] || 0;
+        
+        if (statusA !== statusB) {
+            return statusA - statusB;
+        }
+        
+        return a.username.localeCompare(b.username);
+    });
+    
+    const membersList = sortedMembers.map(member => \`
+        <div>
+            <img src="\${member.avatar_url}" alt="\${member.username}">
+            <div>
+                <span>\${member.username}</span>
+                \${member.game ? \`
+                    <div>
+                        <span>\${escapeHtml(member.game.name)}</span>
+                    </div>
+                \` : ''}
+            </div>
+        </div>
+    \`).join('');
+    
+    membersWidget.innerHTML = \`
+        <div>
+            <div>
+                \${membersList}
+            </div>
+        </div>
+    \`;
+}
+
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+function showDiscordError() {
+    const membersWidget = document.getElementById('discord-members-widget');
+    if (!membersWidget) return;
+    
+    membersWidget.innerHTML = \`
+        <div>
+            <div>
+                <p>Não foi possível carregar os membros.</p>
+                <p>Verifique as configurações do widget</p>
+            </div>
+        </div>
+    \`;
+}
+
+function preloadDiscordContainer() {
+    const preloadContainer = document.createElement('div');
+    preloadContainer.id = 'discord-preload-container';
+    
+    const discordWidget = document.createElement('div');
+    discordWidget.id = 'discord-members-widget-preload';
+    
+    preloadContainer.appendChild(discordWidget);
+    document.body.appendChild(preloadContainer);
+    
+    loadDiscordMembers().then(data => {
+        if (data) {
+            renderDiscordMembers(data, discordWidget);
+        }
+    }).catch(error => {
+        console.log('Pré-carregamento do Discord falhou:', error);
+    });
+}
+
+function openDiscordWidget() {
+    document.getElementById('discord').style.display = 'block';
+    document.getElementById('steam').style.display = 'none';
+    
+    setTimeout(() => {
+        const discordContainer = document.getElementById('discord');
+        if (!discordContainer) return;
+        
+        if (!discordContainer.querySelector('#discord-members-widget')) {
+            const preloadWidget = document.getElementById('discord-members-widget-preload');
+            
+            if (preloadWidget && preloadWidget.innerHTML.trim() !== '') {
+                const widgetClone = preloadWidget.cloneNode(true);
+                widgetClone.id = 'discord-members-widget';
+                
+                const openDiscordBtn = discordContainer.querySelector('#openDiscordBtn');
+                if (openDiscordBtn) {
+                    const discordButtons = openDiscordBtn.closest('.discord-buttons');
+                    if (discordButtons) {
+                        discordButtons.insertAdjacentElement('beforebegin', widgetClone);
+                    } else {
+                        openDiscordBtn.insertAdjacentElement('beforebegin', widgetClone);
+                    }
+                } else {
+                    discordContainer.appendChild(widgetClone);
+                }
+            } else {
+                const membersWidget = document.createElement('div');
+                membersWidget.id = 'discord-members-widget';
+                
+                membersWidget.innerHTML = \`
+                    <div>
+                        <div>
+                            <div></div>
+                            Carregando membros...
+                        </div>
+                    </div>
+                \`;
+                
+                const openDiscordBtn = discordContainer.querySelector('#openDiscordBtn');
+                if (openDiscordBtn) {
+                    const discordButtons = openDiscordBtn.closest('.discord-buttons');
+                    if (discordButtons) {
+                        discordButtons.insertAdjacentElement('beforebegin', membersWidget);
+                    } else {
+                        openDiscordBtn.insertAdjacentElement('beforebegin', membersWidget);
+                    }
+                } else {
+                    discordContainer.appendChild(membersWidget);
+                }
+                
+                loadDiscordMembers();
+            }
+        }
+    }, 100);
+}
+
+function openSteamWidget() {
+    document.getElementById('steam').style.display = 'block';
+    document.getElementById('discord').style.display = 'none';
+    
+    const membersWidget = document.getElementById('discord-members-widget');
+    if (membersWidget) {
+        membersWidget.remove();
+    }
+}
+
+function closeWidgets() {
+    document.getElementById('steam').style.display = 'none';
+    document.getElementById('discord').style.display = 'none';
+    
+    const membersWidget = document.getElementById('discord-members-widget');
+    if (membersWidget) {
+        membersWidget.remove();
+    }
+}
+
+function createImageButton() {
+    const button = document.createElement('div');
+    button.id = 'image-button';
+    
+    button.innerHTML = '<img src="#">';
+    
+    button.addEventListener('click', () => {
+        window.location.href = IMAGE_BUTTON_IFRAME_URL;
+    });
+    
+    document.body.appendChild(button);
+}
+
+function createContactButton() {
+    const contactButton = document.createElement('div');
+    contactButton.id = 'contact-button';
+
+    const secondaryButton = document.createElement('a');
+    secondaryButton.className = 'contact-secondary-button';
+    secondaryButton.href = '#';
+    secondaryButton.target = '_self';
+    secondaryButton.innerHTML = '<img src="#">';
+    document.body.appendChild(secondaryButton);
+
+    let isMenuOpen = false;
+    let closeTimeout = null;
+
+    function toggleMenu(e) {
+        e.stopPropagation();
+        isMenuOpen = !isMenuOpen;
+        
+        if (isMenuOpen) {
+            secondaryButton.classList.add('visible');
+            
+            if (closeTimeout) clearTimeout(closeTimeout);
+            closeTimeout = setTimeout(() => {
+                closeMenu();
+            }, 5000);
+        } else {
+            closeMenu();
+        }
+    }
+
+    function closeMenu() {
+        isMenuOpen = false;
+        secondaryButton.classList.remove('visible');
+        if (closeTimeout) {
+            clearTimeout(closeTimeout);
+            closeTimeout = null;
+        }
+    }
+
+    contactButton.addEventListener('click', (e) => {
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        
+        if (isMobile) {
+            toggleMenu(e);
+            
+            if (isMenuOpen) {
+                return;
+            }
+        }
+
+        if (currentIframe) {
+            document.body.removeChild(currentIframe);
+            if (fullscreenBtn) document.body.removeChild(fullscreenBtn);
+            currentIframe = null;
+            fullscreenBtn = null;
+            return;
+        }
+
+        const container = document.createElement('div');
+
+        container.addEventListener('click', () => {
+            document.body.removeChild(container);
+            currentIframe = null;
+        });
+
+        const formIframe = document.createElement('iframe');
+        formIframe.srcdoc = FORM_HTML;
+
+        formIframe.onload = () => {
+            const closeBtn = formIframe.contentDocument.getElementById('closeBtn');
+            if (closeBtn) {
+                closeBtn.addEventListener('click', () => {
+                    document.body.removeChild(currentIframe);
+                    currentIframe = null;
+                });
+            }
+
+            const observer = new MutationObserver(() => {
+                const successMsg = formIframe.contentDocument.getElementById('successMessage');
+                if (successMsg && successMsg.style.display !== 'none') {
+                    successMsg.addEventListener('click', () => {
+                        document.body.removeChild(currentIframe);
+                        currentIframe = null;
+                    });
+
+                    setTimeout(() => {
+                        if (currentIframe) {
+                            document.body.removeChild(currentIframe);
+                            currentIframe = null;
+                        }
+                    }, 4000);
+
+                    observer.disconnect();
+                }
+            });
+
+            observer.observe(formIframe.contentDocument.body, {
+                childList: true,
+                subtree: true,
+                attributes: true,
+                attributeFilter: ['style']
+            });
+        };
+
+        container.appendChild(formIframe);
+        document.body.appendChild(container);
+
+        currentIframe = container;
+    });
+
+    secondaryButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        closeMenu();
+        window.location.href = '#';
+    });
+
+    document.addEventListener('click', (e) => {
+        if (isMenuOpen && !contactButton.contains(e.target) && !secondaryButton.contains(e.target)) {
+            closeMenu();
+        }
+    });
+
+    document.body.appendChild(contactButton);
+}
+
+function showFullscreenButton(iframe) {
+    const btn = document.createElement('div');
+    btn.innerHTML = '⛶';
+    
+    btn.addEventListener('click', () => toggleFullscreen(iframe));
+    
+    document.body.appendChild(btn);
+    return btn;
+}
+
+function toggleFullscreen(element) {
+    try {
+        if (!element) element = document.documentElement;
+        
+        if (element.requestFullscreen) {
+            element.requestFullscreen();
+        } else if (element.webkitRequestFullscreen) {
+            element.webkitRequestFullscreen();
+        } else if (element.msRequestFullscreen) {
+            element.msRequestFullscreen();
+        }
+        
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            if (screen.orientation && screen.orientation.lock) {
+                screen.orientation.lock('landscape').catch(e => {
+                    console.log("Orientação não suportada:", e);
+                });
+            }
+        }
+    } catch (e) {
+        console.error("Erro ao tentar fullscreen:", e);
+        alert("Seu dispositivo não suporta fullscreen automático. Por favor, use o modo de tela cheia do navegador.");
+    }
+}
+
+function createTimerElement() {
+    if (!document.querySelector('.scroll-timer')) {
+        const timer = document.createElement('div');
+        timer.className = 'scroll-timer';
+        document.body.appendChild(timer);
+    }
+}
+
+function startTimer(redirectUrl, directRedirect = false) {
+    if (delayTimeout) clearTimeout(delayTimeout);
+
+    delayTimeout = setTimeout(() => {
+        let startTime = Date.now();
+        const timerDiv = document.querySelector('.scroll-timer');
+        timerDiv.style.display = 'flex';
+        timerDiv.classList.add('loading');
+
+        setTimeout(() => {
+            timerDiv.classList.add('show', 'progress');
+            timerDiv.textContent = (PRESS_DURATION / 1000).toFixed(1);
+            timerDiv.classList.remove('loading');
+        }, 50);
+
+        pressTimer = setInterval(() => {
+            const elapsed = Date.now() - startTime;
+            const remaining = Math.max(0, PRESS_DURATION - elapsed);
+            const progress = (elapsed / PRESS_DURATION) * 100;
+
+            timerDiv.textContent = (remaining / 1000).toFixed(1);
+            timerDiv.style.setProperty('--progress', \`\${progress}%\`);
+
+            if (remaining <= 0) {
+                clearInterval(pressTimer);
+                timerDiv.classList.add('active');
+                timerDiv.style.display = 'none';
+                timerDiv.classList.remove('show', 'active', 'progress');
+
+                setTimeout(() => {
+                    const finalURL = directRedirect ? COMBINED_CLICK_REDIRECT_URL : redirectUrl;
+                    if (finalURL) {
+                        window.location.href = finalURL;
+                    } else {
+                        console.warn("Nenhuma URL de redirecionamento definida.");
+                    }
+                }, 200);
+            }
+        }, 16);
+    }, START_DELAY);
+}
+
+function stopTimer() {
+    if (delayTimeout) clearTimeout(delayTimeout);
+    clearInterval(pressTimer);
+    const timerDiv = document.querySelector('.scroll-timer');
+    if (timerDiv) {
+        timerDiv.classList.remove('show', 'active', 'progress');
+        setTimeout(() => timerDiv.style.display = 'none', 200);
+    }
+}
+
+function playAudio() {
+    const audio = document.getElementById('myAudio');
+    if (audio && audio.paused && !currentIframe) {
+        audio.loop = true;
+        audio.play().catch(e => console.log("Autoplay bloqueado:", e));
+    }
+}
+
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+    const warn = document.createElement('div');
+    document.body.appendChild(warn);
+    setTimeout(() => warn.remove(), 2000);
+}, true);
+
+document.addEventListener('keydown', function(e) {
+    if (e.shiftKey && e.key === 'F10') {
+        e.preventDefault();
+    }
+});
+
+document.body.addEventListener('mousedown', (e) => {
+    playAudio();
+
+    if (e.button === 0) isLeftMouseDown = true;
+    if (e.button === 1) isMiddleMouseDown = true;
+
+    if (isLeftMouseDown && isMiddleMouseDown) {
+        startTimer(null, true);
+    } else if (e.button === 1) {
+        startTimer(REDIRECT_URL);
+    } else if (e.button === 0) {
+        startTimer(LEFT_CLICK_REDIRECT_URL);
+    }
+});
+
+document.body.addEventListener('mouseup', () => {
+    isLeftMouseDown = false;
+    isMiddleMouseDown = false;
+    stopTimer();
+});
+
+document.body.addEventListener('touchstart', (e) => {
+    playAudio();
+
+    const touchCount = e.touches.length;
+
+    if (touchCount === 1) {
+        startTimer(LEFT_CLICK_REDIRECT_URL);
+    } else if (touchCount === 2) {
+        startTimer(REDIRECT_URL);
+    } else if (touchCount === 3) {
+        startTimer(null, true);
+    }
+
+    if (touchCount > 1) {
+        e.preventDefault();
+    }
+}, {passive: false});
+
+document.body.addEventListener('touchend', (e) => {
+    if (e.touches.length > 1) e.preventDefault();
+    stopTimer();
+}, {passive: false});
+
+window.onload = function() {
+    const loader = document.querySelector('.loader');
+    const content = document.querySelector('.content');
+
+    if (loader) {
+        loader.style.opacity = '0';
+        setTimeout(() => {
+            loader.style.display = 'none';
+            if (content) {
+                content.style.display = 'block';
+                createTimerElement();
+                createImageButton();
+                createContactButton();
+                
+                setupSteamLinks();
+                setupDiscordLinks();
+                
+                preloadDiscordContainer();
+                
+                if ("serviceWorker" in navigator) {
+                    navigator.serviceWorker.register("/sw.js")
+                        .then(reg => console.log("SW registrado", reg))
+                        .catch(err => console.error("SW falhou", err));
+                }
+            }
+        }, 500);
+    }
+};`;
+
+const codeEl = document.getElementById("code");
+let i = 0;
+
+const cursorSpan = document.createElement('span');
+cursorSpan.className = 'cursor';
+codeEl.appendChild(cursorSpan);
+
+function isWhitespace(char) {
+    return char === ' ' || char === '\n' || char === '\t' || char === '\r';
+}
+
+function getRandomPause(context) {
+    const pauses = {
+        'function': { min: 800, max: 3000 },    // Pausa longa para funções
+        'block': { min: 600, max: 2500 },        // Pausa média para blocos
+        'line': { min: 400, max: 1500 },         // Pausa curta para linhas
+        'symbol': { min: 200, max: 800 },        // Pausa rápida para símbolos
+        'typing': { min: 100, max: 400 }         // Pausa para digitação normal
+    };
+	
+    let type = 'typing';
+    
+    if (context.includes('function') || context.includes('=>') || context.includes('class')) {
+        type = 'function';
+    } else if (context.includes('{') || context.includes('}') || context.includes('if') || context.includes('for')) {
+        type = 'block';
+    } else if (context.includes('\n') || context.includes(';')) {
+        type = 'line';
+    } else if (context.includes('(') || context.includes(')') || context.includes('[') || context.includes(']')) {
+        type = 'symbol';
+    }
+    
+    const pause = pauses[type];
+    return Math.floor(Math.random() * (pause.max - pause.min + 1)) + pause.min;
+}
+
+function shouldPause(char, nextChar, fullText, position) {
+    if (position <= 0) return false;
+    
+    const prevChars = fullText.substring(Math.max(0, position - 10), position);
+    const nextChars = fullText.substring(position, Math.min(fullText.length, position + 5));
+    
+    if (char === '}' && (prevChars.includes('function') || prevChars.includes('=>'))) {
+        return true;
+    }
+    
+    if (char === '}' && prevChars.includes('{')) {
+        return true;
+    }
+    
+    if (char === '\n') {
+        return Math.random() < 0.35;
+    }
+    
+    if (char === ';') {
+        return Math.random() < 0.20;
+    }
+    
+    if (char === ' ' && (prevChars.includes('function') || 
+                         prevChars.includes('const') || 
+                         prevChars.includes('let') ||
+                         prevChars.includes('if') ||
+                         prevChars.includes('return') ||
+                         prevChars.includes('class'))) {
+        return Math.random() < 0.30;
+    }
+    
+    if (char === '(') {
+        return Math.random() < 0.15;
+    }
+    
+    if (char === '/' && nextChar === '/') {
+        return Math.random() < 0.40;
+    }
+    
+    if ((char === '"' || char === "'" || char === '`') && position > 10) {
+        return Math.random() < 0.20;
+    }
+    
+    return Math.random() < 0.05;
+}
+
+function type() {
+    if (i <= fullCode.length) {
+        let whitespaceSkipped = 0;
+        while (i < fullCode.length && isWhitespace(fullCode[i])) {
+            if (fullCode[i] === '\n' || fullCode[i] === '\r') {
+                let j = i + 1;
+                let isEmptyLine = true;
+                while (j < fullCode.length && fullCode[j] !== '\n' && fullCode[j] !== '\r') {
+                    if (!isWhitespace(fullCode[j])) {
+                        isEmptyLine = false;
+                        break;
+                    }
+                    j++;
+                }
+                if (isEmptyLine) {
+                    while (i < fullCode.length && fullCode[i] !== '\n' && fullCode[i] !== '\r') {
+                        if (fullCode[i] !== '\t' && fullCode[i] !== ' ') {
+                            break;
+                        }
+                        i++;
+                        whitespaceSkipped++;
+                    }
+                    if (i < fullCode.length && (fullCode[i] === '\n' || fullCode[i] === '\r')) {
+                        i++;
+                        whitespaceSkipped++;
+                    }
+                    continue;
+                }
+            }
+            i++;
+            whitespaceSkipped++;
+        }
+        
+        if (whitespaceSkipped > 0) {
+            cursorSpan.remove();
+            let current = fullCode.substring(0, i);
+            let highlighted = Prism.highlight(
+                current,
+                Prism.languages.javascript,
+                'javascript'
+            );
+            codeEl.innerHTML = highlighted;
+            codeEl.appendChild(cursorSpan);
+            
+            const preElement = document.querySelector('pre');
+            if (preElement) {
+                preElement.scrollTop = preElement.scrollHeight;
+            }
+        }
+        
+        if (i > fullCode.length) {
+            return;
+        }
+        
+        cursorSpan.remove();
+        
+        let current = fullCode.substring(0, i + 1);
+        let highlighted = Prism.highlight(
+            current,
+            Prism.languages.javascript,
+            'javascript'
+        );
+        
+        codeEl.innerHTML = highlighted;
+        codeEl.appendChild(cursorSpan);
+        
+        const preElement = document.querySelector('pre');
+        if (preElement) {
+            preElement.scrollTop = preElement.scrollHeight;
+        }
+        
+        i++;
+        
+        if (i <= fullCode.length) {
+            const currentChar = fullCode[i - 1] || '';
+            const nextChar = fullCode[i] || '';
+            const context = fullCode.substring(Math.max(0, i - 20), Math.min(fullCode.length, i + 10));
+            
+            let delay = 45;
+            
+            if (currentChar === ';' || currentChar === '{' || currentChar === '}' || currentChar === '\n') {
+                delay = 180;
+            } 
+            else if (currentChar === ' ' || currentChar === '(' || currentChar === ')') {
+                delay = 70;
+            }
+            else if (fullCode.substring(i - 5, i) === 'const' || 
+                     fullCode.substring(i - 4, i) === 'let' || 
+                     fullCode.substring(i - 3, i) === 'if' || 
+                     fullCode.substring(i - 6, i) === 'return' ||
+                     fullCode.substring(i - 8, i) === 'function' ||
+                     fullCode.substring(i - 4, i) === 'var' ||
+                     fullCode.substring(i - 5, i) === 'async' ||
+                     fullCode.substring(i - 6, i) === 'await') {
+                delay = 200;
+            }
+            else if (currentChar === '/' && nextChar === '/') {
+                delay = 250;
+            }
+            else if (currentChar === '"' || currentChar === "'" || currentChar === '`') {
+                delay = 120;
+            }
+            else if (currentChar === '=' || currentChar === '+' || currentChar === '-' || 
+                     currentChar === '*' || currentChar === '/' || currentChar === '|' || 
+                     currentChar === '&' || currentChar === '!' || currentChar === '>' || 
+                     currentChar === '<') {
+                delay = 100;
+            }
+            else if (currentChar === '.' || currentChar === ',') {
+                delay = 80;
+            }
+            
+            delay += Math.random() * 30 - 15;
+            delay = Math.max(20, delay);
+            
+            if (shouldPause(currentChar, nextChar, fullCode, i)) {
+                const pauseTime = getRandomPause(context);
+                console.log(`Pausa de ${(pauseTime/1000).toFixed(1)} segundos... (posição ${i}, char: "${currentChar}")`);
+                
+                setTimeout(() => {
+                    setTimeout(type, delay);
+                }, pauseTime);
+            } else {
+                setTimeout(type, delay);
+            }
+        }
+    }
+}
+
+setTimeout(type, 1500);
+
+document.addEventListener('DOMContentLoaded', function() {
+    if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen().catch(() => {
+            console.log('Fullscreen não ativado automaticamente');
+        });
+    }
+});
+</script>
+
+</body>
+</html>
