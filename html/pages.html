@@ -355,24 +355,45 @@
         .modelo-gastronomia .btn-modelo { background: #bf360c; color: white; }
         
         /* Ajuste para telas muito pequenas */
-        @media (max-width: 480px) {
-            .modelo-wrapper {
-                padding: 6px 10px !important;
-                transform: scale(0.55) !important;
-            }
-            .hero-modelo h1 {
-                font-size: 1rem !important;
-            }
-            .cards-grid,
-            .produtos-grid,
-            .posts-grid {
-                grid-template-columns: 1fr 1fr !important;
-            }
-            .nav-modelo a {
-                font-size: 0.5rem !important;
-                margin-left: 6px !important;
-            }
-        }
+/* Para telas muito pequenas */
+@media (max-width: 480px) {
+    /* Esconde a barra de rolagem no mobile */
+    body {
+        overflow-x: hidden !important;
+    }
+    
+    .modelo-wrapper {
+        padding: 8px 12px !important;
+        transform: none !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
+    }
+    
+    /* Esconde a barra de rolagem do wrapper */
+    .modelo-wrapper::-webkit-scrollbar {
+        display: none !important;
+    }
+    
+    .hero-modelo h1 {
+        font-size: 1.2rem !important;
+        word-wrap: break-word !important;
+    }
+    
+    .cards-grid,
+    .produtos-grid,
+    .posts-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 10px !important;
+    }
+    
+    .nav-modelo a {
+        font-size: 0.65rem !important;
+        margin-left: 8px !important;
+        padding: 4px 6px !important;
+        white-space: nowrap !important;
+    }
+}
     </style>
 </head>
 <body>

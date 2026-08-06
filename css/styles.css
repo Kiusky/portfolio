@@ -91,6 +91,288 @@ body {
   transition: background 0.3s ease, color 0.3s ease;
 }
 
+    .contato-box {
+      position: relative;
+      overflow: hidden;
+      scroll-margin-top: 20px;
+    }
+
+    .btn-branco {
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      border: 2px solid var(--border-color);
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .btn-branco:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      border-color: var(--blue);
+    }
+
+    .btn-branco i {
+      font-size: 1.1rem;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .form-wrapper {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease, margin 0.4s ease;
+      opacity: 0;
+      margin-top: 0;
+      width: 100%;
+    }
+
+    .form-wrapper.open {
+      max-height: 650px;
+      opacity: 1;
+      margin-top: 25px;
+    }
+
+    .form-wrapper form {
+      background: var(--bg-secondary);
+      padding: 25px 20px;
+      border-radius: 16px;
+      text-align: left;
+      border: 1px solid var(--border-color);
+    }
+
+    .form-wrapper form label {
+      display: block;
+      margin-bottom: 16px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    .form-wrapper form label span {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .form-wrapper form input,
+    .form-wrapper form textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid var(--border-color);
+      border-radius: 10px;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      font-size: 1rem;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      font-family: inherit;
+      box-sizing: border-box;
+    }
+
+    .form-wrapper form input:focus,
+    .form-wrapper form textarea:focus {
+      outline: none;
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.15);
+    }
+
+    .form-wrapper form textarea {
+      min-height: 270px;
+      resize: vertical;
+    }
+
+    .form-wrapper form button[type="submit"] {
+      background: var(--blue);
+      color: #fff;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+      box-shadow: 0 4px 15px rgba(0, 102, 255, 0.25);
+    }
+
+    .form-wrapper form button[type="submit"]:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(0, 102, 255, 0.35);
+      background: var(--btn-hover);
+    }
+
+    .form-wrapper form button[type="submit"]:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    #loadingIndicator {
+      text-align: center;
+      padding: 30px 0;
+      color: var(--text-secondary);
+      display: none;
+    }
+
+    #loadingIndicator p {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      font-size: 1.1rem;
+    }
+
+    #loadingIndicator p::before {
+      content: '';
+      width: 28px;
+      height: 28px;
+      border: 3px solid var(--border-color);
+      border-top-color: var(--blue);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+#successMessage {
+  text-align: center;
+  background: #2f3135;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: none;
+  pointer-events: none;
+  user-select: none;
+  max-width: 450px;
+  margin: 6px auto 0 auto;
+  box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+  #successMessage {
+    max-width: 90%;
+  }
+}
+
+    #successMessage h3 {
+      color: #ffffff;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    #successMessage p {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+
+    [data-theme="dark"] #successMessage {
+      background: #2f3135;
+    }
+
+    [data-theme="dark"] #successMessage h3 {
+      color: #ffffff;
+    }
+
+    [data-theme="dark"] #successMessage p {
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    [data-theme="dark"] #successMessage:hover {
+    }
+
+    @media (max-width: 600px) {
+      .contato-box {
+        padding: 30px 20px;
+        margin: 30px 15px;
+      }
+
+      .btn-branco {
+        padding: 10px 25px;
+        font-size: 0.95rem;
+        width: 100%;
+        justify-content: center;
+      }
+
+      .form-wrapper form {
+        padding: 18px 14px;
+      }
+
+      .form-wrapper form input,
+      .form-wrapper form textarea {
+        padding: 10px 14px;
+        font-size: 0.95rem;
+      }
+
+      #successMessage {
+        padding: 20px 15px;
+      }
+
+      #successMessage h3 {
+        font-size: 1rem;
+      }
+    }
+
+    [data-theme="dark"] .contato-box {
+      background: var(--contato-bg);
+      border-color: var(--border-color);
+    }
+
+    [data-theme="dark"] .contato-box .btn-branco {
+      background: #ffffff;
+      color: var(--blue-dark);
+      border: none;
+    }
+
+    [data-theme="dark"] .contato-box .btn-branco:hover {
+      background: var(--blue);
+      color: #ffffff;
+      transform: scale(1.05);
+    }
+
+    [data-theme="dark"] .form-wrapper form {
+      background: var(--bg-secondary);
+      border-color: var(--border-color);
+    }
+
+    [data-theme="dark"] .form-wrapper form input,
+    [data-theme="dark"] .form-wrapper form textarea {
+      background: var(--bg-primary);
+      border-color: var(--border-color);
+      color: var(--text-primary);
+    }
+
+    [data-theme="dark"] .form-wrapper form input:focus,
+    [data-theme="dark"] .form-wrapper form textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2);
+    }
+
+    [data-theme="dark"] #loadingIndicator p::before {
+      border-color: var(--border-color);
+      border-top-color: var(--blue);
+    }
+
+    #contactForm.hidden-form {
+      display: none !important;
+    }
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
