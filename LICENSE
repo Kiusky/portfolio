@@ -1,125 +1,26 @@
-# Licença de Uso — Portfólio Kiusky
+LICENSE
+Copyright © 2026 Kiusky — Giuliano Junior
 
-**Copyright © 2026 Kiusky — Giuliano Junior**
+License of Use — Kiusky Portfolio
 
----
+ENGLISH
 
-# 🇧🇷 Português
-
-## 1. Permissão para uso do código
-
-O código-fonte deste projeto pode ser utilizado livremente para fins pessoais, educacionais e comerciais.
-
-É permitido:
-
-* Visualizar e estudar o código-fonte.
-* Copiar partes ou a totalidade do código.
-* Modificar e adaptar o código.
-* Utilizar as técnicas e soluções apresentadas neste projeto.
-* Criar projetos próprios baseados nas ideias, estruturas e práticas utilizadas neste projeto.
-* Utilizar o código modificado em projetos pessoais ou comerciais.
-
-Não é necessário solicitar autorização prévia para utilizar o código.
-
-## 2. Projetos derivados
-
-É permitido criar um projeto semelhante utilizando este código como referência ou base.
-
-Entretanto, o projeto derivado deverá possuir identidade própria e não poderá ser apresentado como sendo o portfólio original de Kiusky.
-
-O uso do código não concede qualquer direito sobre a identidade, os projetos ou as informações pessoais presentes neste repositório.
-
-## 3. Nome e identidade pessoal
-
-O nome **Kiusky**, **Giuliano Junior** e quaisquer outras identificações pessoais presentes neste projeto não podem ser utilizados para representar outra pessoa, empresa ou projeto.
-
-É proibido utilizar minha identidade para criar a impressão de que um projeto, serviço ou conteúdo foi desenvolvido por mim quando isso não for verdade.
-
-## 4. Contatos e perfis
-
-Os contatos, perfis e links pessoais presentes neste projeto não podem ser reutilizados para representar outra pessoa ou projeto.
-
-Isso inclui, entre outros:
-
-* Perfil do GitHub.
-* Perfil do LinkedIn.
-* Perfil do Discord.
-* Endereços de contato.
-* Links pessoais.
-* Outras formas de identificação associadas ao autor.
-
-Ao utilizar este projeto como base, esses dados devem ser removidos ou substituídos pelos dados do novo autor.
-
-## 5. Projetos e trabalhos apresentados
-
-Os projetos apresentados neste portfólio pertencem aos seus respectivos autores e/ou responsáveis.
-
-A utilização do código deste repositório não concede qualquer direito de propriedade ou autoria sobre esses projetos.
-
-É proibido apresentar projetos desenvolvidos por Kiusky como se fossem projetos próprios.
-
-Projetos, nomes de projetos, marcas, imagens, textos, logotipos e demais materiais específicos apresentados no portfólio não estão automaticamente licenciados para reutilização apenas pelo fato de o código-fonte estar disponível.
-
-## 6. Imagens, logotipo e conteúdo visual
-
-O código pode ser reutilizado, porém os elementos visuais pessoais do portfólio não devem ser utilizados para representar outro autor.
-
-Isso inclui, quando aplicável:
-
-* Logotipo pessoal.
-* Fotografias.
-* Imagens pessoais.
-* Identidade visual.
-* Textos pessoais.
-* Materiais gráficos.
-* Imagens específicas dos projetos apresentados.
-
-O usuário que reutilizar o código deverá substituir esses elementos por seus próprios materiais.
-
-## 7. Atribuição
-
-A atribuição ao autor original não é obrigatória para utilizar ou modificar o código.
-
-Entretanto, é proibido remover ou alterar informações de autoria com a finalidade de fazer parecer que o projeto original foi desenvolvido por outra pessoa.
-
-## 8. Isenção de responsabilidade
-
-O código é disponibilizado **"como está"**, sem garantias de funcionamento, segurança, compatibilidade ou adequação a uma finalidade específica.
-
-O autor não se responsabiliza por danos, perdas ou problemas decorrentes da utilização, modificação ou distribuição do código.
-
-## 9. Resumo
-
-Em termos simples:
-
-**Você pode usar o código e aprender com ele.
-Você pode fazer algo igual ou melhor.
-Você pode modificar e utilizar as técnicas em seus próprios projetos.**
-
-**O que você não pode fazer é pegar minha identidade, meus contatos, meus projetos ou meus materiais pessoais e apresentá-los como se fossem seus.**
-
-Esta licença não concede direitos sobre marcas, nomes, imagens, projetos, conteúdos pessoais ou materiais de terceiros que possam estar presentes no repositório.
-
----
-
-# 🇺🇸 English
-
-## 1. Permission to Use the Code
+Permission to Use the Code
 
 The source code of this project may be freely used for personal, educational, and commercial purposes.
 
 You are permitted to:
 
-* View and study the source code.
-* Copy parts or the entirety of the code.
-* Modify and adapt the code.
-* Use the techniques and solutions presented in this project.
-* Create your own projects based on the ideas, structures, and practices used in this project.
-* Use modified versions of the code in personal or commercial projects.
+View and study the source code.
+Copy parts or the entirety of the code.
+Modify and adapt the code.
+Use the techniques and solutions presented in this project.
+Create your own projects based on the ideas, structures, and practices used in this project.
+Use modified versions of the code in personal or commercial projects.
 
 No prior permission is required to use the code.
 
-## 2. Derivative Projects
+Derivative Projects
 
 You may create a similar project using this code as a reference or as a starting point.
 
@@ -127,28 +28,28 @@ However, any derivative project must have its own identity and must not be prese
 
 Using the code does not grant any rights to the identity, projects, or personal information contained in this repository.
 
-## 3. Name and Personal Identity
+Name and Personal Identity
 
-The names **Kiusky**, **Giuliano Junior**, and any other personal identifiers contained in this project may not be used to represent another person, company, or project.
+The names Kiusky, Giuliano Junior, and any other personal identifiers contained in this project may not be used to represent another person, company, or project.
 
 You may not use my identity in a way that creates the impression that a project, service, or content was developed by me when it was not.
 
-## 4. Contacts and Profiles
+Contacts and Profiles
 
 The personal contacts, profiles, and links contained in this project may not be reused to represent another person or project.
 
 This includes, but is not limited to:
 
-* GitHub profile.
-* LinkedIn profile.
-* Discord profile.
-* Contact information.
-* Personal links.
-* Other identifiers associated with the author.
+GitHub profile.
+LinkedIn profile.
+Discord profile.
+Contact information.
+Personal links.
+Other identifiers associated with the author.
 
 When using this project as a base, these details must be removed or replaced with the new author's own information.
 
-## 5. Projects and Work Presented
+Projects and Work Presented
 
 The projects presented in this portfolio belong to their respective authors and/or owners.
 
@@ -158,46 +59,144 @@ You may not present projects developed by Kiusky as your own work.
 
 Projects, project names, trademarks, images, texts, logos, and other specific materials presented in the portfolio are not automatically licensed for reuse simply because the source code is publicly available.
 
-## 6. Images, Logo, and Visual Content
+Images, Logo, and Visual Content
 
 The code may be reused; however, the personal visual elements of this portfolio may not be used to represent another author.
 
 This includes, where applicable:
 
-* Personal logo.
-* Photographs.
-* Personal images.
-* Visual identity.
-* Personal texts.
-* Graphic materials.
-* Specific images of the projects presented.
+Personal logo.
+Photographs.
+Personal images.
+Visual identity.
+Personal texts.
+Graphic materials.
+Specific images of the projects presented.
 
 Anyone reusing this code must replace these elements with their own materials.
 
-## 7. Attribution
+Attribution
 
 Attribution to the original author is not required to use or modify the code.
 
 However, you may not remove or alter authorship information with the intention of making it appear that the original project was developed by someone else.
 
-## 8. Disclaimer
+Disclaimer
 
-The code is provided **"as is"**, without warranties of functionality, security, compatibility, or fitness for a particular purpose.
+The code is provided "as is", without warranties of functionality, security, compatibility, or fitness for a particular purpose.
 
 The author shall not be held responsible for any damage, loss, or problems resulting from the use, modification, or distribution of the code.
 
-## 9. Summary
+Summary
 
 In simple terms:
 
-**You may use the code and learn from it.
+You may use the code and learn from it.
 You may create something similar or better.
-You may modify the code and use its techniques in your own projects.**
+You may modify the code and use its techniques in your own projects.
 
-**What you may not do is take my identity, contacts, projects, or personal materials and present them as your own.**
+What you may not do is take my identity, contacts, projects, or personal materials and present them as your own.
 
 This license does not grant rights to trademarks, names, images, projects, personal content, or third-party materials that may be present in the repository.
 
----
 
-**Copyright © 2026 Kiusky — Giuliano Junior**
+
+
+
+# PORTUGUESE #
+
+Permissão para uso do código
+
+O código-fonte deste projeto pode ser utilizado livremente para fins pessoais, educacionais e comerciais.
+
+É permitido:
+
+Visualizar e estudar o código-fonte.
+Copiar partes ou a totalidade do código.
+Modificar e adaptar o código.
+Utilizar as técnicas e soluções apresentadas neste projeto.
+Criar projetos próprios baseados nas ideias, estruturas e práticas utilizadas neste projeto.
+Utilizar o código modificado em projetos pessoais ou comerciais.
+
+Não é necessário solicitar autorização prévia para utilizar o código.
+
+Projetos derivados
+
+É permitido criar um projeto semelhante utilizando este código como referência ou base.
+
+Entretanto, o projeto derivado deverá possuir identidade própria e não poderá ser apresentado como sendo o portfólio original de Kiusky.
+
+O uso do código não concede qualquer direito sobre a identidade, os projetos ou as informações pessoais presentes neste repositório.
+
+Nome e identidade pessoal
+
+O nome Kiusky, Giuliano Junior e quaisquer outras identificações pessoais presentes neste projeto não podem ser utilizados para representar outra pessoa, empresa ou projeto.
+
+É proibido utilizar minha identidade para criar a impressão de que um projeto, serviço ou conteúdo foi desenvolvido por mim quando isso não for verdade.
+
+Contatos e perfis
+
+Os contatos, perfis e links pessoais presentes neste projeto não podem ser reutilizados para representar outra pessoa ou projeto.
+
+Isso inclui, entre outros:
+
+Perfil do GitHub.
+Perfil do LinkedIn.
+Perfil do Discord.
+Endereços de contato.
+Links pessoais.
+Outras formas de identificação associadas ao autor.
+
+Ao utilizar este projeto como base, esses dados devem ser removidos ou substituídos pelos dados do novo autor.
+
+Projetos e trabalhos apresentados
+
+Os projetos apresentados neste portfólio pertencem aos seus respectivos autores e/ou responsáveis.
+
+A utilização do código deste repositório não concede qualquer direito de propriedade ou autoria sobre esses projetos.
+
+É proibido apresentar projetos desenvolvidos por Kiusky como se fossem projetos próprios.
+
+Projetos, nomes de projetos, marcas, imagens, textos, logotipos e demais materiais específicos apresentados no portfólio não estão automaticamente licenciados para reutilização apenas pelo fato de o código-fonte estar disponível.
+
+Imagens, logotipo e conteúdo visual
+
+O código pode ser reutilizado, porém os elementos visuais pessoais do portfólio não devem ser utilizados para representar outro autor.
+
+Isso inclui, quando aplicável:
+
+Logotipo pessoal.
+Fotografias.
+Imagens pessoais.
+Identidade visual.
+Textos pessoais.
+Materiais gráficos.
+Imagens específicas dos projetos apresentados.
+
+O usuário que reutilizar o código deverá substituir esses elementos por seus próprios materiais.
+
+Atribuição
+
+A atribuição ao autor original não é obrigatória para utilizar ou modificar o código.
+
+Entretanto, é proibido remover ou alterar informações de autoria com a finalidade de fazer parecer que o projeto original foi desenvolvido por outra pessoa.
+
+Isenção de responsabilidade
+
+O código é disponibilizado "como está", sem garantias de funcionamento, segurança, compatibilidade ou adequação a uma finalidade específica.
+
+O autor não se responsabiliza por danos, perdas ou problemas decorrentes da utilização, modificação ou distribuição do código.
+
+Resumo
+
+Em termos simples:
+
+Você pode usar o código e aprender com ele.
+Você pode fazer algo igual ou melhor.
+Você pode modificar e utilizar as técnicas em seus próprios projetos.
+
+O que você não pode fazer é pegar minha identidade, meus contatos, meus projetos ou meus materiais pessoais e apresentá-los como se fossem seus.
+
+Esta licença não concede direitos sobre marcas, nomes, imagens, projetos, conteúdos pessoais ou materiais de terceiros que possam estar presentes no repositório.
+
+Copyright © 2026 Kiusky — Giuliano Junior
