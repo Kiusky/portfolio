@@ -13,145 +13,59 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>#loader{position:fixed;top:0;left:0;width:100%;height:100%;background:#2f3135;display:flex;justify-content:center;align-items:center;z-index:9999;transition:opacity 0.5s ease}#loader.hidden{opacity:0;pointer-events:none}#loader img{width:150px;height:150px;animation:pulse 1.5s ease-in-out infinite}@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}#main-content{opacity:0;transition:opacity 0.8s ease}#main-content.visible{opacity:1}</style>
 </head>
 <body>
-  <div class="container">
-
-    <nav class="navbar">
-      <div class="logo">
-        <img src="img/logo.webp" alt="Logo" draggable="false" class="logo-icon">
-        <span class="logo-text">Kiusky<span></span></span>
-        <span class="logo-sub">Giuliano Junior</span>
-      </div>
-      <div class="nav-links">
-        <a href="#contato" class="btn-contato"><i class="fa-solid fa-comments"></i> Fale comigo</a>
-        <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
-          <i class="fas fa-moon"></i>
-        </button>
-      </div>
-    </nav>
-
-    <section class="hero">
-      <div class="hero-text">
-        <h1>Transformo ideias em <span>soluções</span> digitais</h1>
-        <div class="hero-stats">
-          <div><i class="fas fa-check-circle"></i> 15+ anos</div>
-          <div><i class="fas fa-code"></i> 50+ projetos</div>
-          <div><i class="fas fa-users"></i> 1M+ serviços</div>
-        </div>
-      </div>
-	  
-    </section>
-
-    <div class="diferenciais">
-      <div class="glass-sparkle"></div>
-      <div class="glass-sparkle"></div>
-      <div class="glass-sparkle"></div>
-      <div class="diferenciais-grid">
-        <div><i class="fas fa-shield-alt"></i><h4>Segurança</h4><p>Práticas atualizadas</p></div>
-        <div><i class="fas fa-clock"></i><h4>Agilidade</h4><p>Entregas no prazo</p></div>
-        <div><i class="fas fa-headset"></i><h4>Suporte</h4><p>Pós-atendimento dedicado</p></div>
-        <div><i class="fas fa-handshake"></i><h4>Confiança</h4><p>Parceria transparente</p></div>
-      </div>
-    </div>
-
-    <div class="section-wrapper" id="servicosSection">
-      <div class="section-title" id="servicosToggle">
-        <span class="title-content">
-          <i class="fas fa-cog"></i> Serviços
-        </span>
-        <span class="arrow"><i class="fas fa-chevron-down"></i></span>
-      </div>
-      <div class="section-content" id="servicosContent">
-        <div class="servicos-grid">
-          <div class="servico-card">
-            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-              <i class="fas fa-globe" style="font-size: 2rem; color: var(--blue); margin: 0; padding: 0; background: none;"></i>
-              <h3 style="margin: 0; font-size: 1.2rem;">SITES</h3>
-            </div>
-            <p style="margin: 0; padding-left: 4px;">Landing pages, institucionais e e-commerces com design responsivo e otimizado.</p>
-          </div>
-          <div class="servico-card">
-            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-              <i class="fab fa-discord" style="font-size: 2rem; color: var(--blue); margin: 0; padding: 0; background: none;"></i>
-              <h3 style="margin: 0; font-size: 1.2rem;">BOTS</h3>
-            </div>
-            <p style="margin: 0; padding-left: 4px;">Automação, moderação, economia, e comandos personalizados.</p>
-          </div>
-          <div class="servico-card">
-            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-              <i class="fas fa-network-wired" style="font-size: 2rem; color: var(--blue); margin: 0; padding: 0; background: none;"></i>
-              <h3 style="margin: 0; font-size: 1.2rem;">REDES & INFRA</h3>
-            </div>
-            <p style="margin: 0; padding-left: 4px;">Configuração de roteadores, switches, VPN e cabeamento estruturado.</p>
-          </div>
-          <div class="servico-card">
-            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-              <i class="fas fa-desktop" style="font-size: 2rem; color: var(--blue); margin: 0; padding: 0; background: none;"></i>
-              <h3 style="margin: 0; font-size: 1.2rem;">MÁQUINAS</h3>
-            </div>
-            <p style="margin: 0; padding-left: 4px;">Hardware sob medida, otimização de desempenho e formatação.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="section-wrapper" id="projetosSection">
-      <div class="section-title" id="projetosToggle">
-        <span class="title-content">
-          <i class="fas fa-folder-open"></i> Projetos em destaque
-        </span>
-        <span class="arrow"><i class="fas fa-chevron-down"></i></span>
-      </div>
-      <div class="section-content" id="projetosContent">
-        <div class="projetos-carousel">
-          <div class="carousel-container">
-            <div class="carousel-slide active" data-index="0">
-              <div style="text-align:center;font-weight:bold;margin-bottom:5px;">VOVÓ DOTA</div>
-              <div class="carousel-image-wrapper">
-                <img src="img/projetos/vovodota.webp" draggable="false">
-              </div>
-            </div>
-            <div class="carousel-slide" data-index="1">
-              <div style="text-align:center;font-weight:bold;margin-bottom:5px;">PROJETO 2</div>
-              <div class="carousel-image-wrapper">
-                <img src="#" draggable="false">
-              </div>
-            </div>
-            <div class="carousel-slide" data-index="2">
-              <div style="text-align:center;font-weight:bold;margin-bottom:5px;">PROJETO 3</div>
-              <div class="carousel-image-wrapper">
-                <img src="#" draggable="false">
-              </div>
-            </div>
-            <div class="carousel-slide" data-index="3">
-              <div style="text-align:center;font-weight:bold;margin-bottom:5px;">PROJETO 4</div>
-              <div class="carousel-image-wrapper">
-                <img src="#" draggable="false">
-              </div>
-            </div>
-            <div class="carousel-dots" id="carouselDots">
-              <button class="carousel-dot active" data-index="0"></button>
-              <button class="carousel-dot" data-index="1"></button>
-              <button class="carousel-dot" data-index="2"></button>
-              <button class="carousel-dot" data-index="3"></button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <footer>
-      <span style="font-weight: 400;">Copyright © 2026 Kiusky — Especialista em TI</span>
-      <div class="social-links">
-        <a href="https://www.linkedin.com/in/giuliano-jr/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://discord.com/users/351072738053586955" target="_blank" rel="noopener noreferrer"><i class="fab fa-discord"></i></a>
-        <a href="https://github.com/Kiusky" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
-      </div>
-    </footer>
-
+  <div id="loader">
+    <img src="https://kiusky.github.io/portfolio/img/logo.webp" alt="Logo" draggable="false">
   </div>
-
+  <div id="main-content">
+    <div class="container">  
+      <nav class="navbar">
+        <div class="logo">
+          <img src="img/logo.webp" alt="Logo" draggable="false" class="logo-icon">
+          <span class="logo-text">Kiusky<span></span></span>
+          <span class="logo-sub">Giuliano Junior</span>
+        </div>
+        <div class="nav-links">
+          <a href="#contato" class="btn-contato"><i class="fa-solid fa-comments"></i> Fale comigo</a>
+          <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
+            <i class="fas fa-moon"></i>
+          </button>
+        </div>
+      </nav>
+      <section class="hero">
+        <div class="hero-text">
+          <h1>Transformo ideias em <span>soluções</span> digitais</h1>
+          <div class="hero-stats">
+            <div><i class="fas fa-check-circle"></i> 15+ anos</div>
+            <div><i class="fas fa-code"></i> 50+ projetos</div>
+            <div><i class="fas fa-users"></i> 1M+ serviços</div>
+          </div>
+        </div>
+      </section>
+      <div class="diferenciais">
+        <div class="glass-sparkle"></div>
+        <div class="glass-sparkle"></div>
+        <div class="glass-sparkle"></div>
+        <div class="diferenciais-grid">
+          <div><i class="fas fa-shield-alt"></i><h4>Segurança</h4><p>Práticas atualizadas</p></div>
+          <div><i class="fas fa-clock"></i><h4>Agilidade</h4><p>Entregas no prazo</p></div>
+          <div><i class="fas fa-headset"></i><h4>Suporte</h4><p>Pós-atendimento dedicado</p></div>
+          <div><i class="fas fa-handshake"></i><h4>Confiança</h4><p>Parceria transparente</p></div>
+        </div>
+      </div>
+      <footer>
+        <span style="font-weight: 400;">Copyright © 2026 Kiusky — Especialista em TI</span>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/giuliano-jr/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://discord.com/users/351072738053586955" target="_blank" rel="noopener noreferrer"><i class="fab fa-discord"></i></a>
+          <a href="https://github.com/Kiusky" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+        </div>
+      </footer>
+    </div>
+  </div>
   <script src="script.js"></script>
+  <script>window.addEventListener("load",function(){const e=document.getElementById("loader"),t=document.getElementById("main-content");setTimeout(function(){e.classList.add("hidden"),t.classList.add("visible")},500)}),setTimeout(function(){const e=document.getElementById("loader");e.classList.contains("hidden")||(e.classList.add("hidden"),document.getElementById("main-content").classList.add("visible"))},5e3);</script>
 </body>
 </html>
