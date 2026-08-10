@@ -1,7 +1,6 @@
 (function() {
 
   function createCircuitDividerTop() {
-
     if (document.querySelector('.circuit-divider-top')) return;
     
     const container = document.querySelector('.container');
@@ -52,12 +51,11 @@
         <rect class="circuit-chip" x="1085" y="10" width="12" height="6"></rect>
       </svg>
     `;
-
+    
     container.insertBefore(divider, container.firstChild);
   }
 
   function createCircuitDividerBottom() {
-
     if (document.querySelector('.circuit-divider-bottom')) return;
     
     const container = document.querySelector('.container');
@@ -108,8 +106,124 @@
         <rect class="circuit-chip active" x="1145" y="10" width="12" height="6"></rect>
       </svg>
     `;
-
+    
     container.appendChild(divider);
+  }
+
+  function createServicosSection() {
+    if (document.getElementById('servicosSection')) return;
+    
+    const container = document.querySelector('.container');
+    if (!container) return;
+
+    const diferenciais = document.querySelector('.diferenciais');
+    if (!diferenciais) return;
+    
+    const section = document.createElement('div');
+    section.className = 'section-wrapper';
+    section.id = 'servicosSection';
+    section.innerHTML = `
+      <div class="section-title" id="servicosToggle">
+        <span class="title-content">
+          <i class="fas fa-cog"></i> Serviços
+        </span>
+        <span class="arrow"><i class="fas fa-chevron-down"></i></span>
+      </div>
+      <div class="section-content" id="servicosContent">
+        <div class="servicos-grid">
+          <div class="servico-card">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+              <i class="fas fa-globe" style="font-size: 2rem; color: var(--blue); margin: 0; padding: 0; background: none;"></i>
+              <h3 style="margin: 0; font-size: 1.2rem;">SITES</h3>
+            </div>
+            <p style="margin: 0; padding-left: 4px;">Landing pages, institucionais e e-commerces com design responsivo e otimizado.</p>
+          </div>
+          <div class="servico-card">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+              <i class="fab fa-discord" style="font-size: 2rem; color: var(--blue); margin: 0; padding: 0; background: none;"></i>
+              <h3 style="margin: 0; font-size: 1.2rem;">BOTS</h3>
+            </div>
+            <p style="margin: 0; padding-left: 4px;">Automação, moderação, economia, e comandos personalizados.</p>
+          </div>
+          <div class="servico-card">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+              <i class="fas fa-network-wired" style="font-size: 2rem; color: var(--blue); margin: 0; padding: 0; background: none;"></i>
+              <h3 style="margin: 0; font-size: 1.2rem;">REDES & INFRA</h3>
+            </div>
+            <p style="margin: 0; padding-left: 4px;">Configuração de roteadores, switches, VPN e cabeamento estruturado.</p>
+          </div>
+          <div class="servico-card">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+              <i class="fas fa-desktop" style="font-size: 2rem; color: var(--blue); margin: 0; padding: 0; background: none;"></i>
+              <h3 style="margin: 0; font-size: 1.2rem;">MÁQUINAS</h3>
+            </div>
+            <p style="margin: 0; padding-left: 4px;">Hardware sob medida, otimização de desempenho e formatação.</p>
+          </div>
+        </div>
+      </div>
+    `;
+
+    diferenciais.parentNode.insertBefore(section, diferenciais.nextSibling);
+  }
+
+  function createProjetosSection() {
+    if (document.getElementById('projetosSection')) return;
+    
+    const container = document.querySelector('.container');
+    if (!container) return;
+
+    const servicosSection = document.getElementById('servicosSection');
+    if (!servicosSection) return;
+    
+    const section = document.createElement('div');
+    section.className = 'section-wrapper';
+    section.id = 'projetosSection';
+    section.innerHTML = `
+      <div class="section-title" id="projetosToggle">
+        <span class="title-content">
+          <i class="fas fa-folder-open"></i> Projetos em destaque
+        </span>
+        <span class="arrow"><i class="fas fa-chevron-down"></i></span>
+      </div>
+      <div class="section-content" id="projetosContent">
+        <div class="projetos-carousel">
+          <div class="carousel-container">
+            <div class="carousel-slide active" data-index="0">
+              <div style="text-align:center;font-weight:bold;margin-bottom:5px;">VOVÓ DOTA</div>
+              <div class="carousel-image-wrapper">
+                <img src="img/projetos/vovodota.webp" draggable="false">
+              </div>
+            </div>
+            <div class="carousel-slide" data-index="1">
+              <div style="text-align:center;font-weight:bold;margin-bottom:5px;">PROJETO 2</div>
+              <div class="carousel-image-wrapper">
+                <img src="#" draggable="false">
+              </div>
+            </div>
+            <div class="carousel-slide" data-index="2">
+              <div style="text-align:center;font-weight:bold;margin-bottom:5px;">PROJETO 3</div>
+              <div class="carousel-image-wrapper">
+                <img src="#" draggable="false">
+              </div>
+            </div>
+            <div class="carousel-slide" data-index="3">
+              <div style="text-align:center;font-weight:bold;margin-bottom:5px;">PROJETO 4</div>
+              <div class="carousel-image-wrapper">
+                <img src="#" draggable="false">
+              </div>
+            </div>
+            <div class="carousel-dots" id="carouselDots">
+              <button class="carousel-dot active" data-index="0"></button>
+              <button class="carousel-dot" data-index="1"></button>
+              <button class="carousel-dot" data-index="2"></button>
+              <button class="carousel-dot" data-index="3"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    servicosSection.parentNode.insertBefore(section, servicosSection.nextSibling);
   }
 
   function createHeroImage() {
@@ -203,16 +317,18 @@
   }
 
   const toggleBtn = document.getElementById('themeToggle');
-  const icon = toggleBtn.querySelector('i');
+  const icon = toggleBtn ? toggleBtn.querySelector('i') : null;
   const html = document.documentElement;
 
   function setTheme(theme) {
     html.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
-    if (theme === 'dark') {
-      icon.className = 'fas fa-sun';
-    } else {
-      icon.className = 'fas fa-moon';
+    if (icon) {
+      if (theme === 'dark') {
+        icon.className = 'fas fa-sun';
+      } else {
+        icon.className = 'fas fa-moon';
+      }
     }
   }
 
@@ -224,11 +340,13 @@
   let initialTheme = savedTheme || getSystemTheme();
   setTheme(initialTheme);
 
-  toggleBtn.addEventListener('click', function() {
-    const currentTheme = html.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    setTheme(newTheme);
-  });
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', function() {
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      setTheme(newTheme);
+    });
+  }
 
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
     if (!localStorage.getItem('theme')) {
@@ -237,7 +355,6 @@
     }
   });
 
-  // Accordion
   function smoothScrollTo(element, offset = 20, duration = 600) {
     if (!element) return;
     const rect = element.getBoundingClientRect();
@@ -264,47 +381,49 @@
     requestAnimationFrame(animateScroll);
   }
 
-  const servicosToggle = document.getElementById('servicosToggle');
-  const projetosToggle = document.getElementById('projetosToggle');
-  const servicosContent = document.getElementById('servicosContent');
-  const projetosContent = document.getElementById('projetosContent');
-  const servicosArrow = servicosToggle ? servicosToggle.querySelector('.arrow') : null;
-  const projetosArrow = projetosToggle ? projetosToggle.querySelector('.arrow') : null;
-  const servicosSection = document.getElementById('servicosSection');
-  const projetosSection = document.getElementById('projetosSection');
+  function setupAccordions() {
+    const servicosToggle = document.getElementById('servicosToggle');
+    const projetosToggle = document.getElementById('projetosToggle');
+    const servicosContent = document.getElementById('servicosContent');
+    const projetosContent = document.getElementById('projetosContent');
+    const servicosArrow = servicosToggle ? servicosToggle.querySelector('.arrow') : null;
+    const projetosArrow = projetosToggle ? projetosToggle.querySelector('.arrow') : null;
+    const servicosSection = document.getElementById('servicosSection');
+    const projetosSection = document.getElementById('projetosSection');
 
-  function closeAllAccordions() {
-    if (servicosContent) servicosContent.classList.remove('open');
-    if (projetosContent) projetosContent.classList.remove('open');
-    if (servicosArrow) servicosArrow.classList.remove('rotated');
-    if (projetosArrow) projetosArrow.classList.remove('rotated');
-  }
-
-  function toggleAccordion(content, arrow, section) {
-    if (!content) return;
-    const isOpen = content.classList.contains('open');
-    closeAllAccordions();
-    if (!isOpen) {
-      content.classList.add('open');
-      if (arrow) arrow.classList.add('rotated');
-      setTimeout(function() {
-        smoothScrollTo(section, 30, 600);
-      }, 100);
+    function closeAllAccordions() {
+      if (servicosContent) servicosContent.classList.remove('open');
+      if (projetosContent) projetosContent.classList.remove('open');
+      if (servicosArrow) servicosArrow.classList.remove('rotated');
+      if (projetosArrow) projetosArrow.classList.remove('rotated');
     }
-  }
 
-  if (servicosToggle) {
-    servicosToggle.addEventListener('click', function(e) {
-      e.stopPropagation();
-      toggleAccordion(servicosContent, servicosArrow, servicosSection);
-    });
-  }
+    function toggleAccordion(content, arrow, section) {
+      if (!content) return;
+      const isOpen = content.classList.contains('open');
+      closeAllAccordions();
+      if (!isOpen) {
+        content.classList.add('open');
+        if (arrow) arrow.classList.add('rotated');
+        setTimeout(function() {
+          smoothScrollTo(section, 30, 600);
+        }, 100);
+      }
+    }
 
-  if (projetosToggle) {
-    projetosToggle.addEventListener('click', function(e) {
-      e.stopPropagation();
-      toggleAccordion(projetosContent, projetosArrow, projetosSection);
-    });
+    if (servicosToggle) {
+      servicosToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        toggleAccordion(servicosContent, servicosArrow, servicosSection);
+      });
+    }
+
+    if (projetosToggle) {
+      projetosToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        toggleAccordion(projetosContent, projetosArrow, projetosSection);
+      });
+    }
   }
 
   // Diferenciais
@@ -319,40 +438,41 @@
     });
   }
 
-  // Carousel
-  const slides = document.querySelectorAll('.carousel-slide');
-  const dots = document.querySelectorAll('.carousel-dot');
-  let current = 0;
-  let autoInterval;
+  function setupCarousel() {
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.carousel-dot');
+    let current = 0;
+    let autoInterval;
 
-  function goTo(index) {
-    slides.forEach(s => s.classList.remove('active'));
-    dots.forEach(d => d.classList.remove('active'));
-    if (index < 0) index = slides.length - 1;
-    if (index >= slides.length) index = 0;
-    current = index;
-    slides[current].classList.add('active');
-    dots[current].classList.add('active');
-  }
+    if (slides.length === 0 || dots.length === 0) return;
 
-  function next() { goTo(current + 1); }
-  function startAuto() { stopAuto(); autoInterval = setInterval(next, 5000); }
-  function stopAuto() { if (autoInterval) { clearInterval(autoInterval); autoInterval = null; } }
+    function goTo(index) {
+      slides.forEach(s => s.classList.remove('active'));
+      dots.forEach(d => d.classList.remove('active'));
+      if (index < 0) index = slides.length - 1;
+      if (index >= slides.length) index = 0;
+      current = index;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
 
-  if (dots.length > 0) {
+    function next() { goTo(current + 1); }
+    function startAuto() { stopAuto(); autoInterval = setInterval(next, 5000); }
+    function stopAuto() { if (autoInterval) { clearInterval(autoInterval); autoInterval = null; } }
+
     dots.forEach((d, i) => d.addEventListener('click', function() {
       goTo(i);
       stopAuto();
       startAuto();
     }));
-  }
 
-  const container = document.querySelector('.carousel-container');
-  if (container) {
-    container.addEventListener('mouseenter', stopAuto);
-    container.addEventListener('mouseleave', startAuto);
+    const container = document.querySelector('.carousel-container');
+    if (container) {
+      container.addEventListener('mouseenter', stopAuto);
+      container.addEventListener('mouseleave', startAuto);
+    }
+    startAuto();
   }
-  startAuto();
 
   function initializeMonitorInteractions() {
     const iframeCode = document.getElementById('iframeCode');
@@ -549,14 +669,18 @@
       });
     }
   }
-  
+
   document.addEventListener('DOMContentLoaded', function() {
 
     createCircuitDividerTop();
-    createCircuitDividerBottom();
     createHeroImage();
+    createServicosSection();
+    createProjetosSection();
     createContatoSection();
-    
+    createCircuitDividerBottom();
+
+    setupAccordions();
+    setupCarousel();
     initializeMonitorInteractions();
     initializeContatoInteractions();
   });
