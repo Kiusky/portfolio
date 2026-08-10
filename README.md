@@ -19,7 +19,7 @@ O projeto é desenvolvido utilizando tecnologias web nativas, sem depender de fr
 
 ## ✨ Funcionalidades
 
-### 🌓 Tema claro e escuro
+🌓 Tema claro e escuro
 
 O site possui suporte a **Light Mode** e **Dark Mode**.
 
@@ -30,7 +30,7 @@ O site possui suporte a **Light Mode** e **Dark Mode**.
 
 ---
 
-### 🖥️ Monitor interativo
+## 🖥️ Monitor interativo
 
 A página inicial possui uma representação de um monitor contendo páginas carregadas através de `iframe`.
 
@@ -40,7 +40,7 @@ O conteúdo é carregado de forma otimizada utilizando `loading="lazy"`.
 
 ---
 
-### ⚙️ Serviços
+## ⚙️ Serviços
 
 A seção de serviços apresenta as principais áreas de atuação:
 
@@ -73,7 +73,7 @@ A seção de serviços apresenta as principais áreas de atuação:
 
 ---
 
-### 📁 Projetos em destaque
+## 📁 Projetos em destaque
 
 O portfólio possui uma seção de projetos organizada em formato de **carrossel**.
 
@@ -88,7 +88,7 @@ O sistema possui:
 
 ---
 
-### 📬 Formulário de contato
+## 📬 Formulário de contato
 
 O site possui um formulário de contato integrado.
 
@@ -99,7 +99,7 @@ O formulário permite que o visitante informe:
 
 ---
 
-### ⚡ Animações
+## ⚡ Animações
 
 O projeto utiliza diversas animações CSS e SVG para criar uma identidade visual tecnológica.
 
